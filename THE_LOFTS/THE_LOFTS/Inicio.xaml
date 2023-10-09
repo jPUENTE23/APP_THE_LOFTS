@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="THE_LOFTS.Inicio">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Image Source="logoMain.png" Style="{StaticResource logoMain}" ></Image>
+            <StackLayout>
+                <ScrollView>
+                    <StackLayout Margin="0,0,0,0">
+                        <StackLayout>
+                            <Frame  Style="{StaticResource frameImg}">
+                                <ImageButton Source="HabBasica.jpg" WidthRequest="360" HeightRequest="250" Margin="-25"></ImageButton>
+                            </Frame>
+                            <Label Text="Habitacion Basica" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+
+                            <Frame Style="{StaticResource frameImg}">
+                                <ImageButton Source="HabPlus.jpg" WidthRequest="360" HeightRequest="250" Margin="-35"></ImageButton>
+                            </Frame>
+                            <Label Text="Habitacion Plus" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+
+                            <Frame Style="{StaticResource frameImg}">
+                                <ImageButton Source="HabDeluxe.jpg" WidthRequest="360" HeightRequest="250" Margin="-38" ></ImageButton>
+                            </Frame>
+                            <Label Text="Habitacion Deluxe" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+
+
+                            <Frame Style="{StaticResource Habitaciones}">
+                                <StackLayout>
+                                    <Label Text="TODAS LAS HABITACIONES ..." TextColor="Black" FontAttributes="Bold" FontSize="25"></Label>
+                                    <Label Text="Cuenta con una excelente vista a la Historica casa de Kenny" TextColor="Black"  FontSize="20"></Label>
+                                    <Label Text="" TextColor="Black"  FontSize="15"></Label>
+                                </StackLayout>
+                            </Frame>
+                            <Image Source="casaKenny.jpg" ></Image>
+                            <StackLayout Style="{StaticResource logoSodo}">
+                                <Image Source="WelcomeHome.png"  Margin="0,0,0,10" WidthRequest="200"></Image>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout BackgroundColor="Transparent">
+                <Frame Style="{StaticResource navegacion}">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
+                        <ImageButton Source="reserv.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Source="main.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Clicked="irPerfil" Source="usuario.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+        
+
+    </ContentPage.Content>
+</ContentPage>

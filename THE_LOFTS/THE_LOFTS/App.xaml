@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="THE_LOFTS.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="BorderColor" Value="#4E4C4C" />
+                <Setter Property="BorderRadius" Value="10" />
+                <Setter Property="BorderWidth" Value="5" />
+                <Setter Property="WidthRequest" Value="300" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#092D2D" />
+                <Setter Property="FontFamily" Value="Century Gothic"/>
+            </Style>
+            <Style x:Key="textStyle" TargetType="Frame">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="WidthRequest" Value="260" />
+                <Setter Property="HeightRequest" Value="35" />
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="BorderColor" Value="#F2EFEF"/>
+                <Setter Property="Margin" Value="0,15,0,0"/>
+            </Style>
+            <Style x:Key="input" TargetType="Entry">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="PlaceholderColor" Value="Black"/>
+                <Setter Property="FontFamily" Value="Century Gothic"/>
+            </Style>
+            <Style x:Key="logo" TargetType="StackLayout">
+                <Setter Property="Margin" Value="0,20,0,0"/>
+
+            </Style>
+            <Style x:Key="logoSodo" TargetType="StackLayout">
+                <Setter Property="Margin" Value="0,50,0,0"/>
+            </Style>
+            <Style x:Key="logoMain" TargetType="StackLayout">
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="WidthRequest" Value="300"/>
+            </Style>
+            <Style x:Key="Habitaciones" TargetType="Frame">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="WidthRequest" Value="400" />
+                <Setter Property="HeightRequest" Value="130" />
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="Margin" Value="0,15,0,0"/>
+            </Style>
+            <Style x:Key="navegacion" TargetType="Frame">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="WidthRequest" Value="300" />
+                <Setter Property="HeightRequest" Value="60" />
+                <Setter Property="BackgroundColor" Value="#B4AA91"/>
+                <Setter Property="Margin" Value="0,30,0,20"/>
+            </Style>
+            <Style x:Key="frameImg" TargetType="Frame">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="WidthRequest" Value="300" />
+                <Setter Property="HeightRequest" Value="165" />
+                <Setter Property="BackgroundColor" Value="#F2EFEF"/>
+                <Setter Property="Margin" Value="0,15,0,0"/>
+            </Style>
+            <Style x:Key="btnLogOut" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="BorderColor" Value="#E97C88" />
+                <Setter Property="BorderRadius" Value="10" />
+                <Setter Property="BorderWidth" Value="5" />
+                <Setter Property="WidthRequest" Value="300" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#D52438" />
+                <Setter Property="FontFamily" Value="Century Gothic"/>
+            </Style>
+            <Style x:Key="detalleUsuario" TargetType="Frame">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="WidthRequest" Value="300" />
+                <Setter Property="HeightRequest" Value="500" />
+                <Setter Property="BackgroundColor" Value="#ECECEC"/>
+                <Setter Property="Margin" Value="0,15,0,0"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
