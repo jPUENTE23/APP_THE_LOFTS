@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="THE_LOFTS.Inicio">
+             x:Class="THE_LOFTS.HabBasica">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <Image Source="logoMain.png" Style="{StaticResource logoMain}" ></Image>
@@ -9,12 +9,19 @@
                 <ScrollView>
                     <StackLayout Margin="0,0,0,0">
                         <StackLayout>
-                            <Frame  Style="{StaticResource frameImg}">
-                                <ImageButton Source="HabBasica.jpg" Clicked="irHabBasica" WidthRequest="360" HeightRequest="250" Margin="-25"></ImageButton>
+                            <Frame  Style="{StaticResource frameDetalleHab}">
+                                <ImageButton Source="HabBasica.jpg" WidthRequest="360" HeightRequest="250" Margin="-25"></ImageButton>
                             </Frame>
-                            <Label Text="Habitacion Basica" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                            <Frame Style="{StaticResource frameDetalle}">
+                                <StackLayout>
+                                    <Label Text="Habitacion Basica" TextColor="Black" HorizontalTextAlignment="Center" FontSize="22" Margin="0,0,100,0" FontAttributes="Bold"></Label>
 
-                            <Frame Style="{StaticResource frameImg}">
+                                </StackLayout>
+                            </Frame>
+
+                            <Button Style="{StaticResource buttonReservar}" Text="Reservar"></Button>
+
+                            <!--<Frame Style="{StaticResource frameImg}">
                                 <ImageButton Source="HabPlus.jpg" WidthRequest="360" HeightRequest="250" Margin="-35"></ImageButton>
                             </Frame>
                             <Label Text="Habitacion Plus" TextColor="Black" HorizontalTextAlignment="Center"></Label>
@@ -35,22 +42,20 @@
                             <Image Source="casaKenny.jpg" ></Image>
                             <StackLayout Style="{StaticResource logoSodo}">
                                 <Image Source="WelcomeHome.png"  Margin="0,0,0,10" WidthRequest="200"></Image>
-                            </StackLayout>
+                            </StackLayout>-->
                         </StackLayout>
                     </StackLayout>
                 </ScrollView>
             </StackLayout>
-            <StackLayout BackgroundColor="Transparent">
+            <!--<StackLayout BackgroundColor="Transparent">
                 <Frame Style="{StaticResource navegacion}">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                        <ImageButton Source="reserv.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
-                        <ImageButton Source="main.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
-                        <ImageButton Clicked="irPerfil" Source="usuario.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
+                        --><!--<ImageButton Source="reserv.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Source="main.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>-->
+                        <!--<ImageButton Clicked="irPerfil" Source="usuario.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>--><!--
                     </StackLayout>
                 </Frame>
-            </StackLayout>
+            </StackLayout>-->
         </StackLayout>
-        
-
     </ContentPage.Content>
 </ContentPage>

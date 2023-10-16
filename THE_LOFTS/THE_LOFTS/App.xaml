@@ -86,6 +86,35 @@
                 <Setter Property="BackgroundColor" Value="#ECECEC"/>
                 <Setter Property="Margin" Value="0,15,0,0"/>
             </Style>
+            <Style x:Key="frameDetalleHab" TargetType="Frame">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="WidthRequest" Value="380" />
+                <Setter Property="HeightRequest" Value="200" />
+                <Setter Property="BackgroundColor" Value="#F2EFEF"/>
+                <Setter Property="Margin" Value="0,-25,0,0"/>
+            </Style>
+            <Style x:Key="frameDetalle" TargetType="Frame">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="WidthRequest" Value="300" />
+                <Setter Property="HeightRequest" Value="250" />
+                <Setter Property="BackgroundColor" Value="#F2EFEF"/>
+                <Setter Property="Margin" Value="0,15,0,0"/>
+            </Style>
+            <Style x:Key="buttonReservar" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="BorderColor" Value="#75AE8F" />
+                <Setter Property="BorderRadius" Value="15" />
+                <Setter Property="BorderWidth" Value="5" />
+                <Setter Property="WidthRequest" Value="330" />
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#5A8A70" />
+                <Setter Property="FontFamily" Value="Century Gothic"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
