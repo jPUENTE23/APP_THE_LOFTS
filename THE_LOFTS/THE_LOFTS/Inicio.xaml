@@ -15,12 +15,12 @@
                             <Label Text="Habitacion Basica" TextColor="Black" HorizontalTextAlignment="Center"></Label>
 
                             <Frame Style="{StaticResource frameImg}">
-                                <ImageButton Source="HabPlus.jpg" WidthRequest="360" HeightRequest="250" Margin="-35"></ImageButton>
+                                <ImageButton Source="HabPlus.jpg" Clicked="irHabPlus" WidthRequest="360" HeightRequest="250" Margin="-35"></ImageButton>
                             </Frame>
                             <Label Text="Habitacion Plus" TextColor="Black" HorizontalTextAlignment="Center"></Label>
 
                             <Frame Style="{StaticResource frameImg}">
-                                <ImageButton Source="HabDeluxe.jpg" WidthRequest="360" HeightRequest="250" Margin="-38" ></ImageButton>
+                                <ImageButton Source="HabDeluxe.jpg" Clicked="ieHabDeluxe" WidthRequest="360" HeightRequest="250" Margin="-38" ></ImageButton>
                             </Frame>
                             <Label Text="Habitacion Deluxe" TextColor="Black" HorizontalTextAlignment="Center"></Label>
 
@@ -43,7 +43,7 @@
             <StackLayout BackgroundColor="Transparent">
                 <Frame Style="{StaticResource navegacion}">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                        <ImageButton Source="reserv.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Clicked="irReservaciones" Source="reserv.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
                         <ImageButton Source="main.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
                         <ImageButton Clicked="irPerfil" Source="usuario.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
                     </StackLayout>

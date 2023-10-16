@@ -1,34 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="THE_LOFTS.Perfil">
+             x:Class="THE_LOFTS.Reservaciones">
     <ContentPage.Content>
-       
         <StackLayout BackgroundColor="White">
             <Image Source="logoMain.png" Style="{StaticResource logoMain}" ></Image>
             <StackLayout>
                 <StackLayout>
                     <StackLayout Margin="0,0,0,0">
                         <StackLayout>
-                            <Image Source="user.png" WidthRequest="150"></Image>
                             <Frame>
-                                <Label Text="(Usuario)" TextColor="Black" HorizontalOptions="Center"></Label>
+                                <Label Text="Mis Reservaciones" TextColor="Black" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"></Label>
                             </Frame>
-                            <Frame Style="{StaticResource detalleUsuario}">
-                                
+                            <Frame Style="{StaticResource Resrvaciones}">
+
                             </Frame>
-                            
+
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
-                <Button Style="{StaticResource btnLogOut}" Text="Cerrar Sesion" Margin="0,30,0,0"></Button>
             </StackLayout>
             <StackLayout BackgroundColor="Transparent">
                 <Frame Style="{StaticResource navegacion}">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                        <ImageButton Clicked="Rservaciones" Source="reserv.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Source="reserv.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
                         <ImageButton Clicked="irInicio" Source="main.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
-                        <ImageButton  Source="usuario.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Clicked="irPerfil" Source="usuario.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
                     </StackLayout>
                 </Frame>
             </StackLayout>

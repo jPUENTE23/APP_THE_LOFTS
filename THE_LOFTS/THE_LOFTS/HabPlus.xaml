@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="THE_LOFTS.HabBasica">
+             x:Class="THE_LOFTS.HabPlus">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <StackLayout>
@@ -9,11 +9,11 @@
                     <StackLayout Margin="0,0,0,0">
                         <StackLayout>
                             <Frame  Style="{StaticResource frameDetalleHab}">
-                                <ImageButton Source="HabBasica.jpg" WidthRequest="360" HeightRequest="250" Margin="-25"></ImageButton>
+                                <ImageButton Source="HabPlus.jpg" WidthRequest="360" HeightRequest="250" Margin="-40"></ImageButton>
                             </Frame>
                             <Frame Style="{StaticResource frameDetalle}">
                                 <StackLayout>
-                                    <Label Text="Habitacion Basica" TextColor="Black" HorizontalTextAlignment="Center" FontSize="22" Margin="0,0,100,0" FontAttributes="Bold"></Label>
+                                    <Label Text="Habitacion Plus" TextColor="Black" HorizontalTextAlignment="Center" FontSize="22" Margin="0,0,100,0" FontAttributes="Bold"></Label>
 
                                 </StackLayout>
                             </Frame>

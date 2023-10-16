@@ -18,5 +18,10 @@ namespace THE_LOFTS
             NavigationPage.SetHasNavigationBar(this, false);
 
         }
+
+        public async void Inicio(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Inicio());
+        }
     }
 }

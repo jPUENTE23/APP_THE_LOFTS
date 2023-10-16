@@ -10,23 +10,23 @@ using Xamarin.Forms.Xaml;
 namespace THE_LOFTS
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Perfil : ContentPage
+    public partial class Reservaciones : ContentPage
     {
-        public Perfil()
+        public Reservaciones()
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
+
         }
 
-        public async void irInicio(object sender, EventArgs e)
+        public async void irInicio (object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Inicio());
         }
 
-
-        public async void Rservaciones(object sender, EventArgs e)
+        public async void irPerfil( object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Reservaciones());
+            await Navigation.PushAsync(new Perfil());
         }
     }
 }

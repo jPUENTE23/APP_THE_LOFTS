@@ -18,7 +18,6 @@ namespace THE_LOFTS
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
-
         public async void irPerfil(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Perfil());
@@ -27,6 +26,18 @@ namespace THE_LOFTS
         public async void irHabBasica (object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HabBasica());
+        }
+        public async void irHabPlus(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new HabPlus());
+        }
+        public async void ieHabDeluxe(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new HabDeluxe());
+        }
+        public async void irReservaciones (object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Reservaciones());
         }
     }
 }
