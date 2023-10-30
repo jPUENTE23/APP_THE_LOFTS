@@ -3,6 +3,9 @@ using System.Data;
 using System.Data.SqlClient;
 using Dapper;
 using Entity;
+using System.Threading.Tasks;
+using Firebase.Database;
+using Firebase.Database.Query;
 
 
 
@@ -11,6 +14,7 @@ namespace DAL
 {
     public class DAL_Usuarios
     {
+        FirebaseClient firebase = new FirebaseClient("https://thelofts-1c252-default-rtdb.firebaseio.com/");
         public static DataTable ConsultarUsuarios(string cadena, string sentencia)
         {
             DataTable dUsuarios = new DataTable();
@@ -32,19 +36,30 @@ namespace DAL
         }
 
 
-        public static void AgregarUsuario(string cadena, string sentencia, object Parametros)
+        public static async Task AgregarUsuario(string P_Nombre, string P_Apaterno, string P_Amasterno, string P_Correo, string P_Contraseña)
         {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(cadena))
-                {
-                    conn.ExecuteReader(sentencia, Parametros, commandType: CommandType.StoredProcedure);
-                }
-            }
-            catch (SqlException e)
-            {
-                throw e;
-            }
+            await firebase
+              .Child("Usuarios")
+              .PostAsync(new DtoUsuario() 
+              {     IdUsuario = Guid.NewGuid(), 
+                    NomUsuario = P_Nombre,
+                    APaterno = P_Apaterno,
+                    AMaterno = P_Amasterno,
+                    Correo = P_Correo,
+                    Contraseña = P_Contraseña
+
+              });
+            //try
+            //{
+            //    using (SqlConnection conn = new SqlConnection(cadena))
+            //    {
+            //        conn.ExecuteReader(sentencia, Parametros, commandType: CommandType.StoredProcedure);
+            //    }
+            //}
+            //catch (SqlException e)
+            //{
+            //    throw e;
+            //}
 
         }
 

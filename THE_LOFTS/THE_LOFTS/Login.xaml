@@ -16,9 +16,10 @@
                 </Frame>
                 <Button Text="Ingresar" Clicked="btnIngresar"  Style="{StaticResource buttonStyle}" Margin="0,30,0,0"/>
                 <Image Source="divisor.png"  Margin="0,10,0,30" WidthRequest="310"></Image>
+                <ImageButton Source="personAdd"  Clicked="irRegistro" Margin="0,0,0,30" BackgroundColor="Transparent" ></ImageButton>
             </StackLayout>
             <StackLayout Style="{StaticResource logoSodo}">
-                <Image Source="sodosopa.png"  Margin="0,0,0,30" WidthRequest="200"></Image>
+                <Image  Source="sodosopa.png"  Margin="0,0,0,30" WidthRequest="200"></Image>
             </StackLayout>
         </StackLayout>
 

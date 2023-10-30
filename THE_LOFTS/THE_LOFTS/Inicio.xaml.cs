@@ -39,5 +39,7 @@ namespace THE_LOFTS
         {
             await Navigation.PushAsync(new Reservaciones());
         }
+
+
     }
 }

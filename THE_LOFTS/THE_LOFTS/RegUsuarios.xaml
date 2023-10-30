@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="THE_LOFTS.RegUsuarios">
+    <ContentPage.Content>
+        <StackLayout Background="white">
+            <StackLayout HeightRequest="100" Style="{StaticResource logo}">
+                <Label Text="Crear Cuenta" TextColor="Black" HorizontalOptions="Center" Margin="0,80,0,0" FontSize="30"></Label>
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="0,60,0,0" >
+                <Frame Style="{StaticResource textStyle}"  >
+                    <Entry x:Name="txtNombre" Placeholder="Nombre" Style="{StaticResource input}" />
+                </Frame>
+                <Frame Style="{StaticResource textStyle}"  Grid.ColumnSpan="2">
+                    <Entry x:Name="txtApellidos" Placeholder="Apellidos" Style="{StaticResource input}" />
+                </Frame>
+                <Frame Style="{StaticResource textStyle}"  Grid.ColumnSpan="2">
+                    <Entry x:Name="txtCorreo" Placeholder="Correo" Style="{StaticResource input}" />
+                </Frame>
+                <Frame Style="{StaticResource textStyle}"  Grid.ColumnSpan="2">
+                    <Entry x:Name="txtContraseña" Placeholder="Contraseña" Style="{StaticResource input}" />
+                </Frame>
+                <Button Text="Registrarse" Clicked="Registrarse"  Style="{StaticResource buttonStyle}" Margin="0,30,0,0"/>
+
+
+            </StackLayout>
+            <StackLayout Style="{StaticResource logoSodo}">
+                <Frame Margin="0,0,0,0">
+                    <ImageButton Source="cerrar.png" Margin="0,0,0,25" WidthRequest="20" BackgroundColor="Transparent" Clicked="Inicio"></ImageButton>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
