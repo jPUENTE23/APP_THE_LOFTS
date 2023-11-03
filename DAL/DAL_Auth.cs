@@ -4,12 +4,13 @@ using System.Text;
 using Firebase.Database;
 using Firebase.Database.Query;
 using Firebase.Auth;
+using System.Threading.Tasks;
 
 namespace DAL
 {
     public class DAL_Auth
     {
-        public static async void Aunteticacion (string Usuario, string Contraseña)
+        public static async Task Aunteticacion (string Usuario, string Contraseña)
         {
             string key = "AIzaSyDKzEcmyoow7KHD3kWkOiE9JFWwULkGHUo";
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(key));

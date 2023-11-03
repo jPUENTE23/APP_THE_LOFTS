@@ -12,7 +12,7 @@
                         <StackLayout>
                             <Image Source="user.png" WidthRequest="150"></Image>
                             <Frame>
-                                <Label Text="(Usuario)" TextColor="Black" HorizontalOptions="Center"></Label>
+                                <Label Text="(Usuario)" x:Name="txt_Usuario"  TextColor="Black" HorizontalOptions="Center"></Label>
                             </Frame>
                             <Frame Style="{StaticResource detalleUsuario}">
                                 

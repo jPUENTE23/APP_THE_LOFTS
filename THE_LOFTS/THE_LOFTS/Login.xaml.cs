@@ -39,39 +39,19 @@ namespace THE_LOFTS
                 var content = await auth.GetFreshAuthAsync();
                 var serializedcontnet = JsonConvert.SerializeObject(content);
 
-                await Navigation.PushAsync(new Inicio());
+                List<DtoUsuario> Usuario = await BL_Usuario.ValidarUsuario(txtUsuario.Text, txtPass.Text);
 
-                //Preferences.Set("MyFirebaseRefreshToken", serializedcontnet);
+                await Navigation.PushAsync(new Inicio(Usuario));
+
             }
             catch (Exception)
             {
                 await App.Current.MainPage.DisplayAlert("Alert", "Invalid useremail or password", "OK");
             }
 
-            //List<DtoUsuario> lstUsuario = BL_Usuario.ValidarUsuario(cadena, txtUsuario.Text, txtPass.Text);
 
 
-            //if (lstUsuario.Count > 1)
-            //{
-            //    await Navigation.PushAsync(new Inicio());
-            //    System.Diagnostics.Debug.WriteLine("Navegación a MainPage exitosa.");
-            //}
-            //else
-            //{
-            //    await DisplayAlert("Error", "Credenciales incorrectas. Intente nuevamente.", "Aceptar");
-            //    System.Diagnostics.Debug.WriteLine("Navigation es null.");
-            //}
 
-            //if (txtUsuario.Text == "Jorge" && txtPass.Text == "jPM230601")
-            //{
-            //    await Navigation.PushAsync(new Inicio());
-            //    System.Diagnostics.Debug.WriteLine("Navegación a MainPage exitosa.");
-            //}
-            //else
-            //{
-            //    await DisplayAlert("Error", "Credenciales incorrectas. Intente nuevamente.", "Aceptar");
-            //    System.Diagnostics.Debug.WriteLine("Navigation es null.");
-            //}
 
         }
 

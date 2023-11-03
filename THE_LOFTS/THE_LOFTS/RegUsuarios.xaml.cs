@@ -30,11 +30,13 @@ namespace THE_LOFTS
 
             DtoUsuario Usuario = new DtoUsuario()
             {
+                NomUsuario = txtNombre.Text,
+                Apellidos = txtApellidos.Text,
                 Correo = txtCorreo.Text,
                 Contraseña = txtContraseña.Text
             };
 
-            List<string> resposne = BL_Usuario.AltaUsuario(Usuario);
+            List<string> resposne = await BL_Usuario.AltaUsuario(Usuario);
 
 
             if (resposne[0] == "00")
@@ -44,6 +46,7 @@ namespace THE_LOFTS
             else
             {
                 await DisplayAlert("Alert", resposne[1], "OK");
+
             }
             //string key = "AIzaSyDKzEcmyoow7KHD3kWkOiE9JFWwULkGHUo";
 

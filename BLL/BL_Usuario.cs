@@ -5,6 +5,7 @@ using DAL;
 using Entity;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace BLL
 {
@@ -24,7 +25,7 @@ namespace BLL
                 foreach (DataRow row in dtUsuario.Rows)
                 {
                     DtoUsuario Usuario = new DtoUsuario();
-                    Usuario.IdUsuario = (int)row["IdUsuario"];
+                    Usuario.IdUsuario = (string)row["IdUsuario"];
                     Usuario.NomUsuario = (string)row["Nombre"];
                     Usuario.APaterno = (string)row["APaterno"];
                     Usuario.AMaterno = (string)row["AMaterno"];
@@ -37,92 +38,51 @@ namespace BLL
             return lstUsuario;
         }
 
-        public static async List<string> AltaUsuario(DtoUsuario usuario)
+        public static async Task<List<string>> AltaUsuario(DtoUsuario usuario)
         {
             List<string> responde = new List<string>();
 
             try
             {
                 await DAL_Auth.Aunteticacion(usuario.Correo, usuario.Contraseña);
-                await DAL_Usuarios.AgregarUsuario(usuario.NomUsuario, usuario.APaterno, usuario.AMaterno, usuario.Contraseña);
+                await DAL_Usuarios.AgregarUsuario(usuario.NomUsuario, usuario.Apellidos, usuario.Correo,usuario.Contraseña);
                 responde.Add("00");
                 responde.Add("El usuario se agrego correctamente");
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 responde.Add("14");
                 responde.Add(e.Message);
             }
-            //try
-            //{
-            //    var Paraemtros = new
-            //    {
-            //        P_Nombre = usuario.NomUsuario,
-            //        P_APaterno = usuario.APaterno,
-            //        P_AMaterno = usuario.AMaterno,
-            //        P_Correo = usuario.Correo,
-            //        P_Contraseña = usuario.Contraseña
 
-            //    };
-
-            //    DAL_Usuarios.AgregarUsuario(cadena, "SP_GUARDAR_USUARIO", Paraemtros);
-            //    responde.Add("00");
-            //    responde.Add("El usuario se agrego correctamente");
-            //}
-            //catch (SqlException e)
-            //{
-            //    responde.Add("14");
-            //    responde.Add(e.Message);
-            //}
 
             return responde;
         }
 
-        public static List<DtoUsuario> ValidarUsuario(string cadena, string usuario, string contraseña)
+        public static async Task<List<DtoUsuario>> ValidarUsuario(string usuario, string contraseña)
         {
-            List<DtoUsuario> lstUsuario = new List<DtoUsuario>();
-
-            //var parametros = new
-            //{
-            //    P_Usuario = usuario,
-            //    P_Contraseña = contraseña
-            //};
-
-            DtoUsuario User = new DtoUsuario()
+            List<DtoUsuario> Usuario = new List<DtoUsuario>();
+            try
             {
-                Correo = usuario,
-                Contraseña = contraseña
-            };
+                List<DtoUsuario> lstUsuarios = await DAL_Usuarios.Usuarios();
 
-            SqlDataReader dtUsuario = DAL_Usuarios.Login(cadena, "SP_LOGIN", User);
-
-            if (dtUsuario.FieldCount>0)
-            {
-
-                //foreach (DataRow row in dtUsuario.Rows)
-                //{
-                //    DtoUsuario Usuario = new DtoUsuario();
-                //    Usuario.IdUsuario = (int)row["IdUsuario"];
-                //    Usuario.NomUsuario = (string)row["Nombre"];
-                //    Usuario.APaterno = (string)row["APaterno"];
-                //    Usuario.AMaterno = (string)row["AMaterno"];
-                //    Usuario.Correo = (string)row["Correo"];
-                //    lstUsuario.Add(Usuario);
-                //}
-
-                while (dtUsuario.Read())
+                foreach (DtoUsuario user in lstUsuarios)
                 {
-                    DtoUsuario Usuario = new DtoUsuario();
-                    Usuario.IdUsuario = (int)dtUsuario["IdUsuario"];
-                    Usuario.NomUsuario = (string)dtUsuario["Nombre"];
-                    Usuario.APaterno = (string)dtUsuario["APaterno"];
-                    Usuario.AMaterno = (string)dtUsuario["AMaterno"];
-                    Usuario.Correo = (string)dtUsuario["Correo"];
-                    lstUsuario.Add(Usuario);
+                    if (user.Correo == usuario && user.Contraseña == contraseña)
+                    {
+                        Usuario.Add(user);
+                        break;
+                    }
                 }
-            }
 
-            return lstUsuario;
+            }catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return Usuario;
+
+            
         }
     }
 }

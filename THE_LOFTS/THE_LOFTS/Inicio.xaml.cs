@@ -6,38 +6,43 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Entity;
 
 namespace THE_LOFTS
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Inicio : ContentPage
     {
-        public Inicio()
+        public List<DtoUsuario> lstUsuario = new List<DtoUsuario>();
+        public Inicio(List<DtoUsuario> Usuario)
         {
             InitializeComponent();
+            this.lstUsuario = Usuario;
             NavigationPage.SetHasNavigationBar(this, false);
+
+
         }
 
         public async void irPerfil(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Perfil());
+            await Navigation.PushAsync(new Perfil(this.lstUsuario));
         }
 
         public async void irHabBasica (object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HabBasica());
+            await Navigation.PushAsync(new HabBasica(this.lstUsuario));
         }
         public async void irHabPlus(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HabPlus());
+            await Navigation.PushAsync(new HabPlus(this.lstUsuario));
         }
         public async void ieHabDeluxe(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HabDeluxe());
+            await Navigation.PushAsync(new HabDeluxe(this.lstUsuario));
         }
         public async void irReservaciones (object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Reservaciones());
+            await Navigation.PushAsync(new Reservaciones(this.lstUsuario));
         }
 
 

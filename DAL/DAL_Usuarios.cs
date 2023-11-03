@@ -6,6 +6,7 @@ using Entity;
 using System.Threading.Tasks;
 using Firebase.Database;
 using Firebase.Database.Query;
+using System.Collections.Generic;
 
 
 
@@ -14,7 +15,6 @@ namespace DAL
 {
     public class DAL_Usuarios
     {
-        FirebaseClient firebase = new FirebaseClient("https://thelofts-1c252-default-rtdb.firebaseio.com/");
         public static DataTable ConsultarUsuarios(string cadena, string sentencia)
         {
             DataTable dUsuarios = new DataTable();
@@ -36,19 +36,46 @@ namespace DAL
         }
 
 
-        public static async Task AgregarUsuario(string P_Nombre, string P_Apaterno, string P_Amasterno, string P_Correo, string P_Contraseña)
+        public static async Task<List<DtoUsuario>> Usuarios()
         {
+            FirebaseClient firebase = new FirebaseClient("https://thelofts-1c252-default-rtdb.firebaseio.com/");
+            List<DtoUsuario> lstUsuarios = new List<DtoUsuario>();
+
+            var usuariosQuery = await firebase
+                .Child("Usuarios")
+                .OnceAsync<DtoUsuario>();
+
+            foreach (var user in usuariosQuery)
+            {
+                DtoUsuario Usuario = user.Object;
+                lstUsuarios.Add(Usuario);
+            }
+
+            return lstUsuarios;
+        }
+
+
+
+
+
+        public static async Task AgregarUsuario(string P_Nombre, string P_Apellidos, string P_Correo, string P_Contraseña)
+        {
+            FirebaseClient firebase = new FirebaseClient("https://thelofts-1c252-default-rtdb.firebaseio.com/");
             await firebase
               .Child("Usuarios")
               .PostAsync(new DtoUsuario() 
-              {     IdUsuario = Guid.NewGuid(), 
+              {     IdUsuario = Guid.NewGuid().ToString(), 
                     NomUsuario = P_Nombre,
-                    APaterno = P_Apaterno,
-                    AMaterno = P_Amasterno,
+                    Apellidos = P_Apellidos,
                     Correo = P_Correo,
                     Contraseña = P_Contraseña
 
               });
+
+
+
+
+            
             //try
             //{
             //    using (SqlConnection conn = new SqlConnection(cadena))
