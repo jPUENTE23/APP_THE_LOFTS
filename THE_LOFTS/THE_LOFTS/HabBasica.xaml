@@ -18,7 +18,7 @@
                                 </StackLayout>
                             </Frame>
 
-                            <Button Style="{StaticResource buttonReservar}" Text="Reservar"></Button>
+                            <Button Style="{StaticResource buttonReservar}" Clicked="Reservar" Text="Reservar"></Button>
 
                             <Frame Margin="0,15,0,0">
                                 <ImageButton Source="cerrar.png" WidthRequest="20" BackgroundColor="Transparent" Clicked="Inicio"></ImageButton>

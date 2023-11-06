@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Entity;
+using BLL;
 
 namespace THE_LOFTS
 {
@@ -44,6 +45,8 @@ namespace THE_LOFTS
         {
             await Navigation.PushAsync(new Reservaciones(this.lstUsuario));
         }
+
+
 
 
     }

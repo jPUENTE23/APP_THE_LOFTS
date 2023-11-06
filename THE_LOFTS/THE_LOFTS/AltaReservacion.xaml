@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="THE_LOFTS.AltaReservacion">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout >
+                <ScrollView>
+                    <StackLayout Style="{StaticResource AltaResrvaciones}">
+                        <Label Text="Registrar Reservacion" TextColor="#009883" FontSize="50" FontAttributes="Bold"></Label>
+                        <Label Text="Fecha final reservacion" TextColor="Black" Margin="0,30,0,0"></Label>
+                        <Frame CornerRadius="20">
+                            <DatePicker x:Name="fecInicio" TextColor="Black" />
+                        </Frame>
+                        <Label Text="Fecha final reservacion" TextColor="#092D2D" FontAttributes="Bold"></Label>
+                        <Frame CornerRadius="20">
+                            <DatePicker x:Name="fecFin" TextColor="Black"/>
+                        </Frame>
+                        <Label Text="A nombre de:" TextColor="#092D2D" FontAttributes="Bold"></Label>
+                        <Frame   Grid.ColumnSpan="2" CornerRadius="20">
+                            <Entry x:Name="txtUsuario"  Style="{StaticResource input}" />
+                        </Frame>
+
+                        <Label Text="Total:" TextColor="#092D2D" FontSize="30" FontAttributes="Bold"></Label>
+                    </StackLayout>
+                </ScrollView>
+                <Button Text="Guardar Reservacion" Style="{StaticResource buttonReservar}"></Button>
+                <Frame>
+                    <ImageButton Source="cerrar.png" Margin="0,0,0,25" WidthRequest="20" BackgroundColor="Transparent" Clicked="Cerrar"></ImageButton>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

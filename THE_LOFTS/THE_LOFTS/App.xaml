@@ -123,6 +123,13 @@
                 <Setter Property="BackgroundColor" Value="#ECECEC"/>
                 <Setter Property="Margin" Value="0,15,0,0"/>
             </Style>
+            <Style x:Key="AltaResrvaciones" TargetType="Frame">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="WidthRequest" Value="320" />
+                <Setter Property="HeightRequest" Value="700" />
+                <Setter Property="Margin" Value="0,15,0,0"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

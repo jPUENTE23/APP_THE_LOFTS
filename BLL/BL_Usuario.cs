@@ -4,8 +4,11 @@ using System.Text;
 using DAL;
 using Entity;
 using System.Data;
-using System.Data.SqlClient;
 using System.Threading.Tasks;
+using Firebase.Database.Query;
+using Firebase.Database;
+using System.Linq;
+
 
 namespace BLL
 {
@@ -60,27 +63,37 @@ namespace BLL
             return responde;
         }
 
-        public static async Task<List<DtoUsuario>> ValidarUsuario(string usuario, string contraseña)
+
+        public static async Task<List<DtoUsuario>> datosUsuario(string usuario, string contraseña)
         {
-            List<DtoUsuario> Usuario = new List<DtoUsuario>();
+            List<DtoUsuario> lstUsuario = new List<DtoUsuario>();
             try
             {
-                List<DtoUsuario> lstUsuarios = await DAL_Usuarios.Usuarios();
 
-                foreach (DtoUsuario user in lstUsuarios)
+                DtoUsuario UserLogin = new DtoUsuario()
                 {
-                    if (user.Correo == usuario && user.Contraseña == contraseña)
-                    {
-                        Usuario.Add(user);
-                        break;
-                    }
-                }
+                    Correo = usuario,
+                    Contraseña = contraseña
+                };
 
-            }catch (Exception e)
+                var Usuario = await DAL_Usuarios.DetalleUsuario(UserLogin);
+                lstUsuario.Add(Usuario);
+
+                //foreach (DtoUsuario user in usuarios)
+                //{
+                //    if (user.Correo == usuario && user.Contraseña == contraseña)
+                //    {
+                //        Usuario.Add(user);
+                //        break;
+                //    }
+                //}
+
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-            return Usuario;
+            return lstUsuario;
 
             
         }

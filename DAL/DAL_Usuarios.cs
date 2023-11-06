@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Firebase.Database;
 using Firebase.Database.Query;
 using System.Collections.Generic;
+using System.Linq;
 
 
 
@@ -55,7 +56,15 @@ namespace DAL
         }
 
 
-
+        public static async Task<DtoUsuario> DetalleUsuario(DtoUsuario Usuario)
+        {
+            FirebaseClient firebase = new FirebaseClient("https://thelofts-1c252-default-rtdb.firebaseio.com/");
+            var allPersons = await Usuarios();
+            await firebase
+              .Child("Usuarios")
+              .OnceAsync<DtoUsuario>();
+            return allPersons.Where(a => a.Correo == Usuario.Correo && a.Contraseña == Usuario.Contraseña).FirstOrDefault();
+        }
 
 
         public static async Task AgregarUsuario(string P_Nombre, string P_Apellidos, string P_Correo, string P_Contraseña)

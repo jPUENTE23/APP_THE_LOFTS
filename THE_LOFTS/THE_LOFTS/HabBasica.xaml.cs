@@ -25,5 +25,10 @@ namespace THE_LOFTS
         {
             await Navigation.PushAsync(new Inicio(this.lsUsuario));
         }
+
+        public async void Reservar (object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AltaReservacion(this.lsUsuario));
+        }
     }
 }
