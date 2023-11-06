@@ -39,10 +39,7 @@ namespace THE_LOFTS
                 var content = await auth.GetFreshAuthAsync();
                 var serializedcontnet = JsonConvert.SerializeObject(content);
 
-                List<DtoUsuario> Usuario = new List<DtoUsuario>()
-                {
-                    new DtoUsuario {Correo = txtUsuario.Text, Contraseña = txtPass.Text}
-                };
+                List<DtoUsuario> Usuario = await BL_Usuario.datosUsuario(txtUsuario.Text, txtPass.Text);
 
                 await Navigation.PushAsync(new Inicio(Usuario));
 

@@ -33,18 +33,13 @@ namespace THE_LOFTS
             await Navigation.PushAsync(new Reservaciones(this.lstUsuario));
         }
 
-        public async void DatosUsuarios()
+        public void DatosUsuarios()
         {
             try
             {
                 foreach (DtoUsuario usuario in this.lstUsuario)
                 {
-                    List<DtoUsuario> lstUsuario = await BL_Usuario.datosUsuario(usuario.Correo, usuario.Contraseña);
-
-                    foreach (DtoUsuario user in lstUsuario)
-                    {
-                        txt_Usuario.Text = user.NomUsuario.ToString();
-                    }
+                    txt_Usuario.Text = usuario.NomUsuario.ToString();
                 }
             }
             catch (Exception e)

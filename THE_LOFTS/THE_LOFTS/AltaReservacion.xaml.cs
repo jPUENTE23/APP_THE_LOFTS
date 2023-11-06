@@ -28,7 +28,7 @@ namespace THE_LOFTS
             await Navigation.PushAsync(new HabBasica(this.lstusuario));
         }
 
-        public async void GuardarRservacion()
+        public async void GuardarRservacion(object sender, EventArgs e)
         {
 
             int noNoches = BL_RESERVACIONES.nochesRersevacion(fecInicio.Date, fecFin.Date);
@@ -54,6 +54,7 @@ namespace THE_LOFTS
                     if (response[0] == "00")
                     {
                         await App.Current.MainPage.DisplayAlert("Alert", response[1], "OK");
+                        await Navigation.PushAsync(new Inicio(this.lstusuario));
                     }
                     else
                     {

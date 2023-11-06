@@ -31,11 +31,18 @@ namespace BLL
 
         public static int nochesRersevacion (DateTime fenInicio, DateTime fecFin)
         {
-            TimeSpan diferencia = fenInicio - fecFin;
+            TimeSpan diferencia = fecFin - fenInicio;
 
             int numeroDeNoches = diferencia.Days - 1;
 
             return numeroDeNoches;
+        }
+
+        public static async Task<List<DtoReservacion>> RsservacionesUs(string IdUsuario)
+        {
+            List<DtoReservacion> lstRservaciones = await DAL_Reservacion.RservacionesUsuario(IdUsuario);
+
+            return lstRservaciones;
         }
     }
 }

@@ -12,10 +12,20 @@
                             <Frame>
                                 <Label Text="Mis Reservaciones" TextColor="Black" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"></Label>
                             </Frame>
-                            <Frame Style="{StaticResource Resrvaciones}">
-
+                            <Frame>
+                                <ListView x:Name="listaRservaciones">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <StackLayout>
+                                                    <Label Text="Rservacion"></Label>
+                                                    <Label Text="{Binding FecReservacion}"></Label>
+                                                </StackLayout>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
                             </Frame>
-
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>

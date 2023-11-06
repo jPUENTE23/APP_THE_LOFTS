@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using BLL;
 
 namespace THE_LOFTS
 {
@@ -18,6 +19,7 @@ namespace THE_LOFTS
             InitializeComponent();
             this.lsUsuario = Usuario; 
             NavigationPage.SetHasNavigationBar(this, false);
+            cargarRservaciones();
 
         }
 
@@ -29,6 +31,16 @@ namespace THE_LOFTS
         public async void irPerfil( object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Perfil(this.lsUsuario));
+        }
+
+        public async void cargarRservaciones()
+        {
+            foreach (DtoUsuario user in this.lsUsuario)
+            {
+                List<DtoReservacion> lstRservacion = await BL_RESERVACIONES.RsservacionesUs(user.IdUsuario);
+
+                listaRservaciones.ItemsSource = lstRservacion;
+            }
         }
     }
 }

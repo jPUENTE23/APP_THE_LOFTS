@@ -31,6 +31,8 @@ namespace THE_LOFTS
 
         public async void irHabBasica (object sender, EventArgs e)
         {
+
+
             await Navigation.PushAsync(new HabBasica(this.lstUsuario));
         }
         public async void irHabPlus(object sender, EventArgs e)
