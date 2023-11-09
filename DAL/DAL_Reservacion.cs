@@ -27,42 +27,53 @@ namespace DAL
                   FecInicioResrvacion = Reservacion.FecInicioResrvacion,
                   FecFinReservacion = Reservacion.FecFinReservacion,
                   Total = Reservacion.Total,
-                  CantNoches = Reservacion.CantNoches
+                  CantNoches = Reservacion.CantNoches,
+                  TipoHab = Reservacion.TipoHab
 
               });
         }
 
-        public async static Task<List<DtoReservacion>> Reservaciones()
+        public static async Task<List<DtoReservacion>> Reservaciones()
         {
             FirebaseClient firebase = new FirebaseClient("https://thelofts-1c252-default-rtdb.firebaseio.com/");
             List<DtoReservacion> lstReservaciones = new List<DtoReservacion>();
-
-            var reservacionesQuery = await firebase
-                .Child("Rservaciones")
-                .OnceAsync<DtoReservacion>();
-
-            foreach (var reserv in reservacionesQuery)
+            try
             {
-                DtoReservacion reservacion = reserv.Object;
-                lstReservaciones.Add(reservacion);
-            }
+                var reservacionesQuery = await firebase
+                    .Child("Reservaciones")
+                    .OnceAsync<DtoReservacion>();
 
+                if (reservacionesQuery.Any())
+                {
+                    foreach (var reserv in reservacionesQuery)
+                    {
+                        DtoReservacion reservacion = reserv.Object;
+                        lstReservaciones.Add(reservacion);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return lstReservaciones;
         }
 
-        public async static Task<List<DtoReservacion>> RservacionesUsuario (string IdUsuario)
+        public async static Task<List<DtoReservacion>> RservacionesUsuario(string IdUsuario)
         {
-            List<DtoReservacion> lstReservaciones = new List<DtoReservacion>();
+            List<DtoReservacion> reservcionesUsuario = new List<DtoReservacion>();
 
-            FirebaseClient firebase = new FirebaseClient("https://thelofts-1c252-default-rtdb.firebaseio.com/");
-            var allPersons = await Reservaciones();
-            await firebase
-              .Child("Rservaciones")
-              .OnceAsync<DtoReservacion>();
+            List<DtoReservacion> lstRservaciones = await Reservaciones();
 
-            lstReservaciones.Add(allPersons.Where(a => a.IdUsuario == IdUsuario).FirstOrDefault());
+            foreach (DtoReservacion reserv in lstRservaciones)
+            {
+                if (reserv.IdUsuario == IdUsuario)
+                {
+                    reservcionesUsuario.Add(reserv);
+                }
+            }
 
-            return lstReservaciones;
+            return reservcionesUsuario;
         }
     }
 }

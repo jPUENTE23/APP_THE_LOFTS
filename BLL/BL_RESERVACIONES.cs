@@ -38,11 +38,26 @@ namespace BLL
             return numeroDeNoches;
         }
 
-        public static async Task<List<DtoReservacion>> RsservacionesUs(string IdUsuario)
+        public static async Task<List<DtoReservacion>> Rsservaciones(string TipoHab)
         {
-            List<DtoReservacion> lstRservaciones = await DAL_Reservacion.RservacionesUsuario(IdUsuario);
+            List<DtoReservacion> habReservadas = new List<DtoReservacion>();
+            List<DtoReservacion> lstRservaciones = await DAL_Reservacion.Reservaciones();
+            foreach (DtoReservacion reserv in lstRservaciones)
+            {
+                if (reserv.TipoHab == TipoHab)
+                {
+                    habReservadas.Add(reserv);
+                }
+            }
+            return habReservadas;
+        }
 
-            return lstRservaciones;
+        public static async Task<List<DtoReservacion>> RsservacionesUsuario(string IdUsuario)
+        {
+            List<DtoReservacion> reservacionUsuario = await DAL_Reservacion.RservacionesUsuario(IdUsuario);
+            return reservacionUsuario;
+
+
         }
     }
 }

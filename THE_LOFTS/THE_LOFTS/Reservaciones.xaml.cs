@@ -35,9 +35,10 @@ namespace THE_LOFTS
 
         public async void cargarRservaciones()
         {
+
             foreach (DtoUsuario user in this.lsUsuario)
             {
-                List<DtoReservacion> lstRservacion = await BL_RESERVACIONES.RsservacionesUs(user.IdUsuario);
+                List<DtoReservacion> lstRservacion = await BL_RESERVACIONES.RsservacionesUsuario(user.IdUsuario);
 
                 listaRservaciones.ItemsSource = lstRservacion;
             }

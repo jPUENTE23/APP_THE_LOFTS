@@ -18,8 +18,8 @@
                                         <DataTemplate>
                                             <ViewCell>
                                                 <StackLayout>
-                                                    <Label Text="Rservacion"></Label>
-                                                    <Label Text="{Binding FecReservacion}"></Label>
+                                                    <Label Text="Reservacion:" TextColor="Black"  FontAttributes="Bold"></Label>
+                                                    <Label Text="{Binding FecReservacion}" TextColor="Black"></Label>
                                                 </StackLayout>
                                             </ViewCell>
                                         </DataTemplate>
