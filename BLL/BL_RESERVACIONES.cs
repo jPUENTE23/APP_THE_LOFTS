@@ -33,7 +33,7 @@ namespace BLL
         {
             TimeSpan diferencia = fecFin - fenInicio;
 
-            int numeroDeNoches = diferencia.Days - 1;
+            int numeroDeNoches = diferencia.Days;
 
             return numeroDeNoches;
         }

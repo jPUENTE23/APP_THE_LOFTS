@@ -25,11 +25,29 @@ namespace THE_LOFTS
             this.lstusuario = Usuario;
             this.tipoHab = tipoHab;
             this.precioHab = precioHab;
+
+            foreach (DtoUsuario user in Usuario)
+            {
+                txtUsuario.Text = user.NomUsuario + " " + user.Apellidos ;
+            }
         }
 
         public async void Cerrar(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new HabBasica(this.lstusuario));
+        }
+
+        public void calcularTotal()
+        {
+            int noNoches = BL_RESERVACIONES.nochesRersevacion(fecInicio.Date, fecFin.Date);
+            int total = this.precioHab * noNoches;
+
+            txt_Total.Text = "$" + total.ToString();
+        }
+
+        private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
+        {
+            calcularTotal();
         }
 
         public async void GuardarRservacion(object sender, EventArgs e)

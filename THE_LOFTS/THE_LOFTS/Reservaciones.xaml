@@ -16,10 +16,10 @@
                                 <ListView x:Name="listaRservaciones">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <ViewCell>
-                                                <StackLayout>
-                                                    <Label Text="Reservacion:" TextColor="Black"  FontAttributes="Bold"></Label>
-                                                    <Label Text="{Binding FecReservacion}" TextColor="Black"></Label>
+                                            <ViewCell Height="350">
+                                                <StackLayout  >
+                                                    <Label Text="Reservacion:" TextColor="Black" FontSize="12"  FontAttributes="Bold"></Label>
+                                                    <Label Text="{Binding FecReservacion}" TextColor="Black" FontSize="12"></Label>
                                                 </StackLayout>
                                             </ViewCell>
                                         </DataTemplate>

@@ -8,20 +8,21 @@
                 <ScrollView>
                     <StackLayout Style="{StaticResource AltaResrvaciones}">
                         <Label Text="Registrar Reservacion" TextColor="#009883" FontSize="50" FontAttributes="Bold"></Label>
-                        <Label Text="Fecha final reservacion" TextColor="Black" Margin="0,30,0,0"></Label>
+                        <Label Text="Fecha final reservacion" TextColor="Black" Margin="0,20,0,0"></Label>
                         <Frame CornerRadius="20">
-                            <DatePicker x:Name="fecInicio" TextColor="Black" />
+                            <DatePicker x:Name="fecInicio" TextColor="Black" DateSelected="DatePicker_DateSelected"/>
                         </Frame>
-                        <Label Text="Fecha final reservacion" TextColor="#092D2D" FontAttributes="Bold"></Label>
+                        <Label Text="Fecha final reservacion" TextColor="#092D2D" FontAttributes="Bold" Margin="0,15,0,0"></Label>
                         <Frame CornerRadius="20">
-                            <DatePicker x:Name="fecFin" TextColor="Black"/>
+                            <DatePicker x:Name="fecFin" TextColor="Black" DateSelected="DatePicker_DateSelected"/>
                         </Frame>
-                        <Label Text="A nombre de:" TextColor="#092D2D" FontAttributes="Bold"></Label>
+                        <Label Text="A nombre de:" TextColor="#092D2D" FontAttributes="Bold" Margin="0,15,0,0"></Label>
                         <Frame   Grid.ColumnSpan="2" CornerRadius="20">
-                            <Entry x:Name="txtUsuario"  Style="{StaticResource input}" />
+                            <Label x:Name="txtUsuario"  Style="{StaticResource input}" TextColor="Black"/>
                         </Frame>
 
-                        <Label Text="Total:" TextColor="#092D2D" FontSize="30" FontAttributes="Bold"></Label>
+                        <Label Text="Total:"  TextColor="#092D2D" FontSize="30" FontAttributes="Bold" Margin="0,15,0,0"></Label>
+                        <Label x:Name="txt_Total" TextColor="#092D2D" FontSize="20"></Label>
                     </StackLayout>
                 </ScrollView>
                 <Button Text="Guardar Reservacion" Style="{StaticResource buttonReservar}" Clicked="GuardarRservacion"></Button>

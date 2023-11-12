@@ -12,12 +12,25 @@
                                 <ImageButton Source="HabBasica.jpg" WidthRequest="360" HeightRequest="250" Margin="-25"></ImageButton>
                             </Frame>
                             <Frame Style="{StaticResource frameDetalle}">
-                                <StackLayout>
-                                    <Label Text="Habitacion Basica" TextColor="Black" HorizontalTextAlignment="Center" FontSize="22" Margin="0,0,100,0" FontAttributes="Bold"></Label>
+                                <ScrollView>
+                                    <StackLayout>
+                                        <Label Text="Habitacion Basica" TextColor="Black" HorizontalTextAlignment="Center" FontSize="22" Margin="0,0,100,0" FontAttributes="Bold"></Label>
+                                        <StackLayout>
+                                            <Label Text="Comodidades" TextColor="Black" Margin="4,10,0,0" FontAttributes="Bold"></Label>
+                                            <Label Text="- Baño en la habitación" TextColor="Black" Margin="15,0,0,0"></Label>
+                                            <Label Text="- Desayuno incluido" TextColor="Black" Margin="15,0,0,0"></Label>
+                                            <Label Text="Características de la habitación" TextColor="Black" Margin="4,15,0,0" FontAttributes="Bold"></Label>
+                                            <Label Text="- Escritorio" TextColor="Black" Margin="15,0,0,0"></Label>
+                                            <Label Text="- Cafetera" TextColor="Black" Margin="15,0,0,0"></Label>
+                                            <Label Text="- Televisor con cable" TextColor="Black" Margin="15,0,0,0"></Label>
+                                            <Label Text="- No rembolsable" TextColor="Black" Margin="15,0,0,0"></Label>
+                                            <Label Text="- Servicio de lavandería con costo adicional." TextColor="Black" Margin="15,0,0,0"></Label>
 
-                                </StackLayout>
+                                            <Label Text="$700.00 X Noche" TextColor="Black" Margin="4,15,0,0" FontAttributes="Bold" FontSize="20"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ScrollView>
                             </Frame>
-
                             <Button Style="{StaticResource buttonReservar}" Clicked="Reservar" Text="Reservar"></Button>
 
                             <Frame Margin="0,15,0,0">

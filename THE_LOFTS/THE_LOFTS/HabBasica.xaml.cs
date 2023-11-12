@@ -14,7 +14,7 @@ namespace THE_LOFTS
     public partial class HabBasica : ContentPage
     {
         string tipoHab = "Basica";
-        int precioHab = 300;
+        int precioHab = 700;
         List<DtoUsuario> lsUsuario = new List<DtoUsuario>();
         public HabBasica(List<DtoUsuario> Usuario)
         {

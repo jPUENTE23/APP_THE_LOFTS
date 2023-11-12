@@ -40,6 +40,9 @@ namespace THE_LOFTS
                 foreach (DtoUsuario usuario in this.lstUsuario)
                 {
                     txt_Usuario.Text = usuario.NomUsuario.ToString();
+                    txtNom.Text = usuario.NomUsuario.ToString();
+                    txtApellidos.Text = usuario.Apellidos.ToString();
+                    txtCorreo.Text = usuario.Correo.ToString();
                 }
             }
             catch (Exception e)

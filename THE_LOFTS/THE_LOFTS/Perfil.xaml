@@ -15,7 +15,16 @@
                                 <Label Text="(Usuario)" x:Name="txt_Usuario"  TextColor="Black" HorizontalOptions="Center"></Label>
                             </Frame>
                             <Frame Style="{StaticResource detalleUsuario}">
-                                
+                                <StackLayout >
+                                    <Label Text="Nombre" TextColor="Black" FontAttributes="Bold" FontSize="15" Margin="0,15,0,0"></Label>
+                                    <Label x:Name="txtNom" TextColor="Black"></Label>
+
+                                    <Label Text="Apellidos" TextColor="Black" FontAttributes="Bold" FontSize="15" Margin="0,15,0,0"></Label>
+                                    <Label x:Name="txtApellidos" TextColor="Black"></Label>
+
+                                    <Label Text="Correo" TextColor="Black" FontAttributes="Bold" FontSize="15" Margin="0,15,0,0"></Label>
+                                    <Label x:Name="txtCorreo" TextColor="Black"></Label>
+                                </StackLayout>
                             </Frame>
                             
                         </StackLayout>
