@@ -1,30 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="THE_LOFTS.AltaReservacion">
+             x:Class="THE_LOFTS.AltaReservacion"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             >
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <StackLayout >
-                <ScrollView>
-                    <StackLayout Style="{StaticResource AltaResrvaciones}">
-                        <Label Text="Registrar Reservacion" TextColor="#009883" FontSize="50" FontAttributes="Bold"></Label>
-                        <Label Text="Fecha final reservacion" TextColor="Black" Margin="0,20,0,0"></Label>
-                        <Frame CornerRadius="20">
-                            <DatePicker x:Name="fecInicio" TextColor="Black" DateSelected="DatePicker_DateSelected"/>
-                        </Frame>
-                        <Label Text="Fecha final reservacion" TextColor="#092D2D" FontAttributes="Bold" Margin="0,15,0,0"></Label>
-                        <Frame CornerRadius="20">
-                            <DatePicker x:Name="fecFin" TextColor="Black" DateSelected="DatePicker_DateSelected"/>
-                        </Frame>
-                        <Label Text="A nombre de:" TextColor="#092D2D" FontAttributes="Bold" Margin="0,15,0,0"></Label>
-                        <Frame   Grid.ColumnSpan="2" CornerRadius="20">
-                            <Label x:Name="txtUsuario"  Style="{StaticResource input}" TextColor="Black"/>
-                        </Frame>
+                <StackLayout Style="{StaticResource AltaResrvaciones}">
+                    <Label Text="Registrar Reservacion" TextColor="#009883" FontSize="50" FontAttributes="Bold"></Label>
+                    <ScrollView>
+                        <StackLayout>
+                            <Label Text="Selecciona las fechas de reservacion" TextColor="Black" Margin="0,5,0,0" FontAttributes="Bold"></Label>
+                            <Frame CornerRadius="20">
+                                <!--<syncfusion:SfCalendar x:Name="fecInicio" SelectionMode="RangeSelection" SelectionChanged="calendarSelect">
 
-                        <Label Text="Total:"  TextColor="#092D2D" FontSize="30" FontAttributes="Bold" Margin="0,15,0,0"></Label>
-                        <Label x:Name="txt_Total" TextColor="#092D2D" FontSize="20"></Label>
-                    </StackLayout>
-                </ScrollView>
+                                </syncfusion:SfCalendar>-->
+                                <DatePicker x:Name="fecInicio" TextColor="Black" DateSelected="DatePicker_DateSelected"/>
+                            </Frame>
+                            <Label Text="Fecha final reservacion" TextColor="#092D2D" FontAttributes="Bold" Margin="0,15,0,0"></Label>
+                            <Frame CornerRadius="20">
+                                <DatePicker x:Name="fecFin" TextColor="Black" DateSelected="DatePicker_DateSelected"/>
+                            </Frame>
+                            <Label Text="A nombre de:" TextColor="#092D2D" FontAttributes="Bold" Margin="0,15,0,0"></Label>
+                            <Frame   Grid.ColumnSpan="2" CornerRadius="20">
+                                <Label x:Name="txtUsuario"  Style="{StaticResource input}" TextColor="Black"/>
+                            </Frame>
+
+                            <Label Text="Total:"  TextColor="#092D2D" FontSize="30" FontAttributes="Bold" Margin="0,15,0,0"></Label>
+                            <Label x:Name="txt_Total" TextColor="#092D2D" FontSize="20"></Label>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
                 <Button Text="Guardar Reservacion" Style="{StaticResource buttonReservar}" Clicked="GuardarRservacion"></Button>
                 <Frame>
                     <ImageButton Source="cerrar.png" Margin="0,0,0,25" WidthRequest="20" BackgroundColor="Transparent" Clicked="Cerrar"></ImageButton>

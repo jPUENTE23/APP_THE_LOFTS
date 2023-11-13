@@ -44,7 +44,7 @@ namespace BLL
             List<DtoReservacion> lstRservaciones = await DAL_Reservacion.Reservaciones();
             foreach (DtoReservacion reserv in lstRservaciones)
             {
-                if (reserv.TipoHab == TipoHab)
+                if (reserv.TipoHab == TipoHab && reserv.Estatus == 1)
                 {
                     habReservadas.Add(reserv);
                 }

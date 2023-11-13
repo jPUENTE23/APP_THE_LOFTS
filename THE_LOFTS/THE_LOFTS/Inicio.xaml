@@ -12,17 +12,17 @@
                             <Frame  Style="{StaticResource frameImg}">
                                 <ImageButton Source="HabBasica.jpg" Clicked="irHabBasica" WidthRequest="360" HeightRequest="250" Margin="-25"></ImageButton>
                             </Frame>
-                            <Label Text="Habitacion Basica" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                            <Label Text="Habitacion Basica" TextColor="#009883" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
 
                             <Frame Style="{StaticResource frameImg}">
                                 <ImageButton Source="HabPlus.jpg" Clicked="irHabPlus" WidthRequest="360" HeightRequest="250" Margin="-35"></ImageButton>
                             </Frame>
-                            <Label Text="Habitacion Plus" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                            <Label Text="Habitacion Plus" TextColor="#009883" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
 
                             <Frame Style="{StaticResource frameImg}">
                                 <ImageButton Source="HabDeluxe.jpg" Clicked="ieHabDeluxe" WidthRequest="360" HeightRequest="250" Margin="-38" ></ImageButton>
                             </Frame>
-                            <Label Text="Habitacion Deluxe" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+                            <Label Text="Habitacion Deluxe" TextColor="#009883" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
 
 
                             <Frame Style="{StaticResource Habitaciones}">

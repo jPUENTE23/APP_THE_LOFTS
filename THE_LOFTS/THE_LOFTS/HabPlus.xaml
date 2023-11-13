@@ -9,16 +9,37 @@
                     <StackLayout Margin="0,0,0,0">
                         <StackLayout>
                             <Frame  Style="{StaticResource frameDetalleHab}">
+                                
                                 <ImageButton Source="HabPlus.jpg" WidthRequest="360" HeightRequest="250" Margin="-40"></ImageButton>
                             </Frame>
                             <Frame Style="{StaticResource frameDetalle}">
-                                <StackLayout>
-                                    <Label Text="Habitacion Plus" TextColor="Black" HorizontalTextAlignment="Center" FontSize="22" Margin="0,0,100,0" FontAttributes="Bold"></Label>
+                                <ScrollView>
+                                    <StackLayout>
+                                        <Label x:Name="txtDisponible" TextColor="Black" FontSize="12" Margin="0,0,160,0" FontAttributes="Bold"></Label>
+                                        <Label Text="Habitacion Plus" TextColor="#009883"  FontSize="22" Margin="0,0,100,0" FontAttributes="Bold"></Label>
+                                        <StackLayout>
+                                            <Label Text="Nuestra habitación Plus cuenta con aire acondicionado, teléfono con llamadas locales, servicio de lavandería con costo adicional, microondas, televisor LCD, escritorio de trabajo, una cafetera con 2 vasos, una cama King size, baño en la habitación (para más de 1 noche se tendrá servicio de limpieza todos los días) cuenta con toallas, papel sanitario y jabones (si se requieren más podrá pedirlo en la recepción) secadora de pelo y plancha de ropa con su propia tabla." TextColor="Black" Margin="0,5,0,0" FontSize="12"></Label>
+                                            <Label Text="Comodidades" TextColor="Black" Margin="0,10,0,0" FontAttributes="Bold"></Label>
+                                            <Label Text="- Room service 24 horas" TextColor="Black" Margin="15,0,0,0" FontSize="12"></Label>
+                                            <Label Text="- WiFi sin costo" TextColor="Black" Margin="15,0,0,0" FontSize="12"></Label>
+                                            <Label Text="- Desayuno gratis (A partir de las 8 am a 10 am)" TextColor="Black" Margin="15,0,0,0" FontSize="12"></Label>
+                                            <Label Text="- Caja de seguridad" TextColor="Black" Margin="15,0,0,0" FontSize="12"></Label>
+                                            <Label Text="Comodidades" TextColor="Black" Margin="0,10,0,0" FontAttributes="Bold"></Label>
+                                            <Label Text="- Escritorio" TextColor="Black" Margin="15,0,0,0" FontSize="12"></Label>
+                                            <Label Text="- Cafetera" TextColor="Black" Margin="15,0,0,0" FontSize="12"></Label>
+                                            <Label Text="- Secador de pelo" TextColor="Black" Margin="15,0,0,0" FontSize="12"></Label>
+                                            <Label Text="- Tabla y Plancha de ropa" TextColor="Black" Margin="15,0,0,0" FontSize="12"></Label>
+                                            <Label Text="- Televisión LCD" TextColor="Black" Margin="15,0,0,0" FontSize="12"></Label>
+                                            <Label Text="- Microondas" TextColor="Black" Margin="15,0,0,0" FontSize="12"></Label>
 
-                                </StackLayout>
+                                            <Label Text="$1,200.00 X Noche" TextColor="Black" Margin="0,15,0,0" FontAttributes="Bold" FontSize="20"></Label>
+
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ScrollView>
                             </Frame>
 
-                            <Button Style="{StaticResource buttonReservar}" Text="Reservar"></Button>
+                            <Button Style="{StaticResource buttonReservar}" Text="Reservar" Clicked="Reservar"></Button>
 
                             <Frame Margin="0,15,0,0">
                                 <ImageButton Source="cerrar.png" WidthRequest="20" BackgroundColor="Transparent" Clicked="Inicio"></ImageButton>

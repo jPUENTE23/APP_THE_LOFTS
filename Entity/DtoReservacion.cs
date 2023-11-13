@@ -13,7 +13,8 @@ namespace Entity
         public DateTime FecFinReservacion { get; set; }
         public int Total { get; set; }
         public int CantNoches { get; set; }
-        public string TipoHab { get; set; } 
+        public string TipoHab { get; set; }
+        public int Estatus { get; set; }
 
     }
 }

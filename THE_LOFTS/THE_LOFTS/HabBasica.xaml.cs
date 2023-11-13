@@ -15,12 +15,14 @@ namespace THE_LOFTS
     {
         string tipoHab = "Basica";
         int precioHab = 700;
+        int cantDisponibles = 10;
         List<DtoUsuario> lsUsuario = new List<DtoUsuario>();
         public HabBasica(List<DtoUsuario> Usuario)
         {
             InitializeComponent();
             this.lsUsuario = Usuario;
             NavigationPage.SetHasNavigationBar(this, false);
+            ValidarHabitaciones();
 
         }
 
@@ -32,6 +34,20 @@ namespace THE_LOFTS
         public async void Reservar (object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AltaReservacion(this.lsUsuario, precioHab, tipoHab));
+        }
+
+        public async void ValidarHabitaciones()
+        {
+            List<DtoReservacion> reservacionees = await BL_RESERVACIONES.Rsservaciones(tipoHab);
+
+            if(reservacionees.Count < cantDisponibles)
+            {
+                txtDisponible.Text = "Disponibles";
+            }
+            else
+            {
+                txtDisponible.Text = "No Disponibles";
+            }
         }
 
 

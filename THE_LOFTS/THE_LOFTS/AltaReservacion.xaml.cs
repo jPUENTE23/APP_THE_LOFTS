@@ -34,7 +34,19 @@ namespace THE_LOFTS
 
         public async void Cerrar(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HabBasica(this.lstusuario));
+            if (this.tipoHab == "Basica")
+            {
+                await Navigation.PushAsync(new HabBasica(this.lstusuario));
+            }
+            else if (this.tipoHab == "Plus")
+            {
+                await Navigation.PushAsync(new HabPlus(this.lstusuario));
+            }
+            else
+            {
+                await Navigation.PushAsync(new HabDeluxe(this.lstusuario));
+            }
+            
         }
 
         public void calcularTotal()
@@ -69,7 +81,8 @@ namespace THE_LOFTS
                         IdUsuario = user.IdUsuario,
                         CantNoches = noNoches,
                         Total = total,
-                        TipoHab = this.tipoHab
+                        TipoHab = this.tipoHab,
+                        Estatus = 1
                     };
 
                     List<string> response = await BL_RESERVACIONES.GuardarReservacion(Reservacion);

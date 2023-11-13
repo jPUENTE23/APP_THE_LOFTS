@@ -28,7 +28,8 @@ namespace DAL
                   FecFinReservacion = Reservacion.FecFinReservacion,
                   Total = Reservacion.Total,
                   CantNoches = Reservacion.CantNoches,
-                  TipoHab = Reservacion.TipoHab
+                  TipoHab = Reservacion.TipoHab,
+                  Estatus = Reservacion.Estatus
 
               });
         }

@@ -6,24 +6,50 @@ using System.Threading.Tasks;
 using Entity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using BLL;
 
 namespace THE_LOFTS
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HabDeluxe : ContentPage
     {
+        string tipoHab = "Deluxe";
+        int precioHab = 4500;
+        int cantDisponibles = 10;
         List<DtoUsuario> lstUsuario = new List<DtoUsuario>();
         public HabDeluxe(List<DtoUsuario> Usuario)
         {
+
             InitializeComponent();
             this.lstUsuario = Usuario;
             NavigationPage.SetHasNavigationBar(this, false);
+            ValidarHabitaciones();
 
         }
 
         public async void Inicio(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Inicio(this.lstUsuario));
+        }
+
+        public async void Reservar(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AltaReservacion(this.lstUsuario, precioHab, tipoHab));
+        }
+
+        public async void ValidarHabitaciones()
+        {
+            List<DtoReservacion> reservacionees = await BL_RESERVACIONES.Rsservaciones(tipoHab);
+
+            if (reservacionees.Count < cantDisponibles)
+            {
+                txtDisponible.Text = "Disponibles";
+            }
+            else
+            {
+                txtDisponible.Text = "No Disponibles";
+
+            }
         }
     }
 }
