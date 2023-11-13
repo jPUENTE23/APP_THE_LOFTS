@@ -13,12 +13,12 @@
                                 <Label Text="Mis Reservaciones" TextColor="Black" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"></Label>
                             </Frame>
                             <Frame>
-                                <ListView x:Name="listaRservaciones">
+                                <ListView x:Name="listaRservaciones" RowHeight="70" >
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <ViewCell Height="350">
+                                            <ViewCell Height="350" >
                                                 <StackLayout  >
-                                                    <Label Text="Reservacion:" TextColor="Black" FontSize="12"  FontAttributes="Bold"></Label>
+                                                    <Label Text="{Binding TipoHab}" TextColor="#009883" FontSize="15"  FontAttributes="Bold"></Label>
                                                     <Label Text="{Binding FecReservacion}" TextColor="Black" FontSize="12"></Label>
                                                 </StackLayout>
                                             </ViewCell>
