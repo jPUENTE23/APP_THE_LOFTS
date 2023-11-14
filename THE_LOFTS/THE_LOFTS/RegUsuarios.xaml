@@ -18,7 +18,7 @@
                     <Entry x:Name="txtCorreo" Placeholder="Correo" Style="{StaticResource input}" />
                 </Frame>
                 <Frame Style="{StaticResource textStyle}"  Grid.ColumnSpan="2">
-                    <Entry x:Name="txtContraseña" Placeholder="Contraseña" Style="{StaticResource input}" />
+                    <Entry x:Name="txtContraseña" IsPassword="True" Placeholder="Contraseña" Style="{StaticResource input}" />
                 </Frame>
                 <Button Text="Registrarse" Clicked="Registrarse"  Style="{StaticResource buttonStyle}" Margin="0,30,0,0"/>
 

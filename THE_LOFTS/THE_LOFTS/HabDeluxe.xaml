@@ -45,7 +45,7 @@
                                 </ScrollView>
                             </Frame>
 
-                            <Button Style="{StaticResource buttonReservar}" Text="Reservar" Clicked="Reservar" ></Button>
+                            <Button Style="{StaticResource buttonReservar}" x:Name="btnRservar" Text="Reservar" Clicked="Reservar" ></Button>
 
                             <Frame Margin="0,15,0,0">
                                 <ImageButton Source="cerrar.png" WidthRequest="20" BackgroundColor="Transparent" Clicked="Inicio"></ImageButton>

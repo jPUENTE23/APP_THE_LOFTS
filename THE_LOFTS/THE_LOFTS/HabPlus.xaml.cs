@@ -41,12 +41,13 @@ namespace THE_LOFTS
 
             if (reservacionees.Count < cantDisponibles)
             {
-                txtDisponible.Text = "Disponibles";
+                int disp = cantDisponibles -reservacionees.Count;
+                txtDisponible.Text = $"Disponibles: {disp}";
             }
             else
             {
                 txtDisponible.Text = "No Disponibles";
-
+                btnRservar.IsEnabled = false;
             }
         }
     }

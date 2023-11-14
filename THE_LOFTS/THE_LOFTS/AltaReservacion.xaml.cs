@@ -21,7 +21,7 @@ namespace THE_LOFTS
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
-            fecInicio.DateSelected += FecInicio_DateSelected;
+            //fecInicio.DateSelected += DatePicker_DateSelected;
             this.lstusuario = Usuario;
             this.tipoHab = tipoHab;
             this.precioHab = precioHab;
@@ -59,65 +59,84 @@ namespace THE_LOFTS
 
         private void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
-            calcularTotal();
+            if (fecInicio.Date > DateTime.Now && fecFin.Date > fecInicio.Date)
+            {
+                calcularTotal();
+            }
+ 
+
+                
         }
 
         public async void GuardarRservacion(object sender, EventArgs e)
         {
 
-            int noNoches = BL_RESERVACIONES.nochesRersevacion(fecInicio.Date, fecFin.Date);
-            int total = this.precioHab * noNoches;
-
-            foreach(DtoUsuario usuario in this.lstusuario)
+            if(fecInicio.Date < DateTime.Now)
             {
-                List<DtoUsuario> lstUsuario = await BL_Usuario.datosUsuario(usuario.Correo, usuario.Contraseña);
-                
-                foreach (DtoUsuario user in lstUsuario)
+                await App.Current.MainPage.DisplayAlert("Alert", "La FechaIncioRservacion tiene que ser mayor o igual a la fecha actual", "OK");
+            }
+            else if (fecFin.Date < fecInicio.Date)
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "La FechaFinRservacion tiene que ser mayor a FechaIncioRservacion", "OK");
+            }
+            else
+            {
+                int noNoches = BL_RESERVACIONES.nochesRersevacion(fecInicio.Date, fecFin.Date);
+                int total = this.precioHab * noNoches;
+
+                foreach (DtoUsuario usuario in this.lstusuario)
                 {
-                    DtoReservacion Reservacion = new DtoReservacion
-                    {
-                        FecInicioResrvacion = fecInicio.Date,
-                        FecFinReservacion = fecFin.Date,
-                        IdUsuario = user.IdUsuario,
-                        CantNoches = noNoches,
-                        Total = total,
-                        TipoHab = this.tipoHab,
-                        Estatus = 1
-                    };
+                    List<DtoUsuario> lstUsuario = await BL_Usuario.datosUsuario(usuario.Correo, usuario.Contraseña);
 
-                    List<string> response = await BL_RESERVACIONES.GuardarReservacion(Reservacion);
+                    foreach (DtoUsuario user in lstUsuario)
+                    {
+                        DtoReservacion Reservacion = new DtoReservacion
+                        {
+                            FecInicioResrvacion = fecInicio.Date,
+                            FecFinReservacion = fecFin.Date,
+                            IdUsuario = user.IdUsuario,
+                            CantNoches = noNoches,
+                            Total = total,
+                            TipoHab = this.tipoHab,
+                            Estatus = 1
+                        };
 
-                    if (response[0] == "00")
-                    {
-                        await App.Current.MainPage.DisplayAlert("Alert", response[1], "OK");
-                        await Navigation.PushAsync(new Inicio(this.lstusuario));
-                    }
-                    else
-                    {
-                        await App.Current.MainPage.DisplayAlert("Alert", response[1], "OK");
+                        List<string> response = await BL_RESERVACIONES.GuardarReservacion(Reservacion);
+
+                        if (response[0] == "00")
+                        {
+                            await App.Current.MainPage.DisplayAlert("Alert", response[1], "OK");
+                            await Navigation.PushAsync(new Inicio(this.lstusuario));
+                        }
+                        else
+                        {
+                            await App.Current.MainPage.DisplayAlert("Alert", response[1], "OK");
+                        }
                     }
                 }
             }
+
+            
         }
 
-        private void FecInicio_DateSelected(object sender, DateChangedEventArgs e)
-        {
-            // Obtiene la fecha seleccionada
-            DateTime selectedDate = e.NewDate;
+        //private void FecInicio_DateSelected(object sender, DateChangedEventArgs e)
+        //{
+        //    // Obtiene la fecha seleccionada
+        //    DateTime selectedDate = e.NewDate;
 
-            // Define el rango de fechas bloqueadas (del 16 al 19)
-            DateTime fechaInicioBloqueada = new DateTime(selectedDate.Year, selectedDate.Month, 16);
-            DateTime fechaFinBloqueada = new DateTime(selectedDate.Year, selectedDate.Month, 19);
+        //    // Define el rango de fechas bloqueadas (del 16 al 19)
+        //    DateTime fechaInicioBloqueada = new DateTime(selectedDate.Year, selectedDate.Month, 16);
+        //    DateTime fechaFinBloqueada = new DateTime(selectedDate.Year, selectedDate.Month, 19);
 
-            // Verifica si la fecha seleccionada está dentro del rango bloqueado
-            if (selectedDate >= fechaInicioBloqueada && selectedDate <= fechaFinBloqueada)
-            {
+        //    // Verifica si la fecha seleccionada está dentro del rango bloqueado
+        //    if (selectedDate >= fechaInicioBloqueada && selectedDate <= fechaFinBloqueada)
+        //    {
 
-                // Restaura la fecha anterior o realiza alguna acción adicional si es necesario
-                fecInicio.Date = e.OldDate;
-                fecFin.Date = e.OldDate;
-            }
-        }
+        //        // Restaura la fecha anterior o realiza alguna acción adicional si es necesario
+        //        fecInicio.Date = e.OldDate;
+        //        fecFin.Date = e.OldDate;
+        //    }
+        //}
 
 
         //public async void bloquerFechas()
