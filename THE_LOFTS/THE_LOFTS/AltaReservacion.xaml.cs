@@ -75,7 +75,7 @@ namespace THE_LOFTS
             {
                 await App.Current.MainPage.DisplayAlert("Alert", "La FechaIncioRservacion tiene que ser mayor o igual a la fecha actual", "OK");
             }
-            else if (fecFin.Date < fecInicio.Date)
+            else if (fecFin.Date < fecInicio.Date || fecFin.Date == fecInicio.Date)
             {
                 await App.Current.MainPage.DisplayAlert("Alert", "La FechaFinRservacion tiene que ser mayor a FechaIncioRservacion", "OK");
             }

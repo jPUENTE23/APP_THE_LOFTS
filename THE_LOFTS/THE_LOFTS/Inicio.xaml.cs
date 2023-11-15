@@ -20,6 +20,9 @@ namespace THE_LOFTS
             InitializeComponent();
             this.lstUsuario = Usuario;
             NavigationPage.SetHasNavigationBar(this, false);
+            actRservaciones();
+
+
 
 
         }
@@ -46,6 +49,11 @@ namespace THE_LOFTS
         public async void irReservaciones (object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Reservaciones(this.lstUsuario));
+        }
+
+        public async void actRservaciones()
+        {
+            await BL_RESERVACIONES.actualziarEstatusRservaion();
         }
 
 

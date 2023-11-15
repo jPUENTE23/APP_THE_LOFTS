@@ -59,5 +59,18 @@ namespace BLL
 
 
         }
+
+        public static async Task actualziarEstatusRservaion()
+        {
+            List<DtoReservacion> lstReservaciones = await DAL_Reservacion.Reservaciones();
+
+            foreach (DtoReservacion reserv in lstReservaciones)
+            {
+                if(DateTime.Now > reserv.FecFinReservacion)
+                {
+                    await DAL_Reservacion.ActualizarRservacion(reserv.IdReservacion, 0);
+                }
+            }
+        }
     }
 }

@@ -11,7 +11,7 @@
                     <Label Text="Registrar Reservacion" TextColor="#009883" FontSize="50" FontAttributes="Bold"></Label>
                     <ScrollView>
                         <StackLayout>
-                            <Label Text="Selecciona las fechas de reservacion" TextColor="Black" Margin="0,5,0,0" FontAttributes="Bold"></Label>
+                            <Label Text="Fecha inicio reservacion" TextColor="Black" Margin="0,5,0,0" FontAttributes="Bold"></Label>
                             <Frame CornerRadius="20">
                                 <DatePicker x:Name="fecInicio" TextColor="Black" DateSelected="DatePicker_DateSelected"/>
                             </Frame>

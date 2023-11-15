@@ -27,8 +27,8 @@
 
                             <Frame Style="{StaticResource Habitaciones}">
                                 <StackLayout>
-                                    <Label Text="TODAS LAS HABITACIONES ..." TextColor="Black" FontAttributes="Bold" FontSize="25"></Label>
-                                    <Label Text="Cuenta con una excelente vista a la Historica casa de Kenny" TextColor="Black"  FontSize="20"></Label>
+                                    <Label Text="TODAS LAS HABITACIONES..." TextColor="Black" FontAttributes="Bold" FontSize="25"></Label>
+                                    <Label Text="Cuenta con una excelente vista a la historica casa de Kenny" TextColor="Black"  FontSize="20"></Label>
                                     <Label Text="" TextColor="Black"  FontSize="15"></Label>
                                 </StackLayout>
                             </Frame>
