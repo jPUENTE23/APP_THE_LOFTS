@@ -79,15 +79,6 @@ namespace BLL
                 var Usuario = await DAL_Usuarios.DetalleUsuario(UserLogin);
                 lstUsuario.Add(Usuario);
 
-                //foreach (DtoUsuario user in usuarios)
-                //{
-                //    if (user.Correo == usuario && user.Contraseña == contraseña)
-                //    {
-                //        Usuario.Add(user);
-                //        break;
-                //    }
-                //}
-
             }
             catch (Exception e)
             {

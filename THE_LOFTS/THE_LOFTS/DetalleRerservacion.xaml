@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="THE_LOFTS.DetalleRerservacion">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="White" >
+                <StackLayout Style="{StaticResource AltaResrvaciones}">
+                    <Label Text="Reservacion:" TextColor="#009883" FontSize="40" Margin="0,20,0,0"  FontAttributes="Bold"></Label>
+                    <Label x:Name="txtRseracion" TextColor="Black" Margin="0,5,0,0"  FontSize="12"></Label>
+                    <ScrollView>
+                        <StackLayout>
+                            <Label Text="Fecha de Rservacion:" TextColor="Black" Margin="0,20,0,0"  FontSize="20" FontAttributes="Bold"></Label>
+                            <Label x:Name="fecRservacion" TextColor="#009883" Margin="0,5,0,0"  FontSize="12"></Label>
+
+                            <Label Text="Inicio de la Reservacion:" TextColor="Black" Margin="0,5,0,0"  FontSize="20" FontAttributes="Bold"></Label>
+                            <Label x:Name="fecInicio" TextColor="#009883" Margin="0,5,0,0"  FontSize="12"></Label>
+
+                            <Label Text="Fin de la Reservacion:" TextColor="Black" Margin="0,20,0,0"  FontSize="20" FontAttributes="Bold"></Label>
+                            <Label x:Name="fecFin" TextColor="#009883" Margin="0,5,0,0"  FontSize="12"></Label>
+
+                            <Label Text="Tipo habitacion:" TextColor="Black" Margin="0,20,0,0"  FontSize="20" FontAttributes="Bold"></Label>
+                            <Label x:Name="tipHabitacion" TextColor="#009883" Margin="0,5,0,0"  FontSize="12"></Label>
+
+                            <Label Text="Pago Total:" TextColor="Black" Margin="0,20,0,0"  FontSize="20" FontAttributes="Bold"></Label>
+                            <Label x:Name="total" TextColor="#009883" Margin="0,5,0,0"  FontSize="12"></Label>
+
+                            <Label Text="A nombre de:" TextColor="Black" Margin="0,20,0,0"  FontSize="20" FontAttributes="Bold"></Label>
+                            <Label x:Name="usuario" TextColor="#009883" Margin="0,5,0,0"  FontSize="12"></Label>
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+                <Button Text="Eliminar reservacion" x:Name="btnEliminar" Style="{StaticResource buttonEliminar}" Clicked="Eliminar" ></Button>
+                <Frame>
+                    <ImageButton Source="cerrar.png" Margin="0,0,0,25" WidthRequest="20" BackgroundColor="Transparent" Clicked="Cerrar"></ImageButton>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

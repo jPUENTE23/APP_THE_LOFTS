@@ -30,14 +30,14 @@
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
-                <Button Style="{StaticResource btnLogOut}" Text="Cerrar Sesion" Margin="0,30,0,0"></Button>
+                <Button Style="{StaticResource btnLogOut}" Text="Cerrar Sesion" Margin="0,30,0,0" Clicked="cerrarSesion" ></Button>
             </StackLayout>
             <StackLayout BackgroundColor="Transparent">
                 <Frame Style="{StaticResource navegacion}">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                        <ImageButton Clicked="Rservaciones" Source="reserv.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
-                        <ImageButton Clicked="irInicio" Source="main.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
-                        <ImageButton  Source="usuario.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Clicked="Rservaciones" Source="icoReservacion.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Clicked="irInicio" Source="icoInicio.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton  Source="icoPerfil.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
                     </StackLayout>
                 </Frame>
             </StackLayout>

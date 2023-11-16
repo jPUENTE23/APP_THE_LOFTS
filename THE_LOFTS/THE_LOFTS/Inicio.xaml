@@ -43,9 +43,9 @@
             <StackLayout BackgroundColor="Transparent">
                 <Frame Style="{StaticResource navegacion}">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                        <ImageButton Clicked="irReservaciones" Source="reserv.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
-                        <ImageButton Source="main.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
-                        <ImageButton Clicked="irPerfil" Source="usuario.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Clicked="irReservaciones" Source="icoReservacion.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Source="icoInicio.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Clicked="irPerfil" Source="icoPerfil.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
                     </StackLayout>
                 </Frame>
             </StackLayout>

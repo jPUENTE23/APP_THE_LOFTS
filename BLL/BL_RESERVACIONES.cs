@@ -72,5 +72,40 @@ namespace BLL
                 }
             }
         }
+
+        public static async Task<List<DtoReservacion>> datosRservacion (string idRservacion)
+        {
+            List<DtoReservacion> lstRservacion = new List<DtoReservacion>();
+
+            try
+            {
+                DtoReservacion reservacion = await DAL_Reservacion.detalleRservacion(idRservacion);
+                lstRservacion.Add(reservacion);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return lstRservacion;
+        }
+
+        public static async Task<List<string>> eliminarReserv(string idRservacion)
+        {
+            List<string> response = new List<string>();
+            try
+            {
+                await DAL_Reservacion.eliminarRservacion(idRservacion);
+                response.Add("00");
+                response.Add("La reservacion se elimino correctamente");
+            }
+            catch(Exception e)
+            {
+                response.Add("14");
+                response.Add(e.Message);
+            }
+
+            return response;
+        }
     }
 }

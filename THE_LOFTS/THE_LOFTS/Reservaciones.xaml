@@ -13,13 +13,14 @@
                                 <Label Text="Mis Reservaciones" TextColor="Black" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"></Label>
                             </Frame>
                             <Frame>
-                                <ListView x:Name="listaRservaciones" RowHeight="70" >
+                                <ListView x:Name="listaRservaciones" RowHeight="100" ItemSelected="OnItemSelected">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <ViewCell Height="350" >
                                                 <StackLayout  >
                                                     <Label Text="{Binding TipoHab}" TextColor="#009883" FontSize="15"  FontAttributes="Bold"></Label>
                                                     <Label Text="{Binding FecReservacion}" TextColor="Black" FontSize="12"></Label>
+                                                    <Label Text="{Binding IdReservacion}" TextColor="Black" FontSize="12"></Label>
                                                 </StackLayout>
                                             </ViewCell>
                                         </DataTemplate>
@@ -33,9 +34,9 @@
             <StackLayout BackgroundColor="Transparent">
                 <Frame Style="{StaticResource navegacion}">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >
-                        <ImageButton Source="reserv.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
-                        <ImageButton Clicked="irInicio" Source="main.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
-                        <ImageButton Clicked="irPerfil" Source="usuario.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Source="icoReservacion.png" WidthRequest="90" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Clicked="irInicio" Source="icoInicio.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
+                        <ImageButton Clicked="irPerfil" Source="icoPerfil.png" WidthRequest="100" BackgroundColor="Transparent"></ImageButton>
                     </StackLayout>
                 </Frame>
             </StackLayout>

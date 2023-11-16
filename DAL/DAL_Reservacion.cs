@@ -89,5 +89,26 @@ namespace DAL
               .Child(actRservacion.Key)
               .PutAsync(new DtoReservacion() { Estatus = estatus});
         }
+
+
+        public static async Task<DtoReservacion> detalleRservacion(string idRservacion)
+        {
+            FirebaseClient firebase = new FirebaseClient("https://thelofts-1c252-default-rtdb.firebaseio.com/");
+            var reservaciones = await Reservaciones();
+            await firebase
+              .Child("Reservaciones")
+              .OnceAsync<DtoReservacion>();
+            return reservaciones.Where(a => a.IdReservacion == idRservacion ).FirstOrDefault();
+        }
+
+        public static async Task eliminarRservacion(string idRservacion)
+        {
+            FirebaseClient firebase = new FirebaseClient("https://thelofts-1c252-default-rtdb.firebaseio.com/");
+            var reservacion = (await firebase
+              .Child("Reservaciones")
+              .OnceAsync<DtoReservacion>()).Where(a => a.Object.IdReservacion == idRservacion).FirstOrDefault();
+            await firebase.Child("Reservaciones").Child(reservacion.Key).DeleteAsync();
+
+        }
     }
 }

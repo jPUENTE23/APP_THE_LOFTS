@@ -50,5 +50,10 @@ namespace THE_LOFTS
                 Console.WriteLine(e.Message);
             }
         }
+
+        public async void cerrarSesion(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Login());
+        }
     }
 }

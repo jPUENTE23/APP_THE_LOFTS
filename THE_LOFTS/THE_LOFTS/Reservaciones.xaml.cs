@@ -43,5 +43,17 @@ namespace THE_LOFTS
                 listaRservaciones.ItemsSource = lstRservacion;
             }
         }
+
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+
+            var itemSeleccionado = e.SelectedItem as DtoReservacion;
+
+            await Navigation.PushAsync(new DetalleRerservacion(this.lsUsuario, itemSeleccionado.IdReservacion));
+        }
+
+
     }
 }
