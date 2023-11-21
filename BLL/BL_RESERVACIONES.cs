@@ -107,5 +107,19 @@ namespace BLL
 
             return response;
         }
+
+        public static async Task<List<string>> RsservacionesHab(string TipoHab)
+        {
+            List<string> habReservadas = new List<string>();
+            List<DtoReservacion> lstRservaciones = await DAL_Reservacion.Reservaciones();
+            foreach (DtoReservacion reserv in lstRservaciones)
+            {
+                if (reserv.TipoHab == TipoHab && reserv.Estatus == 1)
+                {
+                    habReservadas.Add(reserv.noHabitacion);
+                }
+            }
+            return habReservadas;
+        }
     }
 }

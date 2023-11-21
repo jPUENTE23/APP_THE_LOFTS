@@ -5,7 +5,8 @@
     <ContentPage.Content>
         <StackLayout Background="white">
             <StackLayout HeightRequest="100" Style="{StaticResource logo}">
-                <Label Text="Crear Cuenta" TextColor="Black" HorizontalOptions="Center" Margin="0,80,0,0" FontSize="30"></Label>
+                <Label Text="Crear 
+                       Cuenta" TextColor="#5A8A70" HorizontalOptions="Center" Margin="40,30,0,0" FontSize="50" FontAttributes="Bold"></Label>
             </StackLayout>
             <StackLayout VerticalOptions="CenterAndExpand" Margin="0,60,0,0" >
                 <Frame Style="{StaticResource textStyle}"  >

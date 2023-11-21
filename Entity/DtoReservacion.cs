@@ -15,6 +15,8 @@ namespace Entity
         public int CantNoches { get; set; }
         public string TipoHab { get; set; }
         public int Estatus { get; set; }
+        public string noTarjeta { get; set; }
+        public string noHabitacion { get; set; }
 
     }
 }

@@ -44,6 +44,8 @@ namespace THE_LOFTS
                     tipHabitacion.Text = reserv.TipoHab;
                     total.Text = "$" + reserv.Total.ToString();
                     usuario.Text = user.NomUsuario + " " + user.Apellidos;
+                    noHabitacion.Text = reserv.noHabitacion.ToString();
+                    noTarjeta.Text = "XXXX-XXXX-XXXX-" + reserv.noTarjeta.Substring(reserv.noTarjeta.Length - 4);
 
                     if(reserv.Estatus == 0)
                     {

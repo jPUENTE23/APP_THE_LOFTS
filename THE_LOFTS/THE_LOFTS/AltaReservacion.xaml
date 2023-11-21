@@ -23,7 +23,16 @@
                             <Frame   Grid.ColumnSpan="2" CornerRadius="20">
                                 <Label x:Name="txtUsuario"  Style="{StaticResource input}" TextColor="Black"/>
                             </Frame>
-
+                            <Image Source="cards.png" WidthRequest="100" Margin="0,25,220,0"></Image>
+                            <Frame CornerRadius="20" Margin="0,5,0,0">
+                                <Entry x:Name="txtNoTarjeta" MaxLength="16"  Placeholder="No. de Tarjeta " Style="{StaticResource input}" />
+                            </Frame>
+                            <Frame CornerRadius="20" Margin="0,5,0,0">
+                                <Entry x:Name="txtFecVec" MaxLength="5" Placeholder="MM/AA" Style="{StaticResource input}" />
+                            </Frame>
+                            <Frame CornerRadius="20" Margin="0,5,0,0">
+                                <Entry x:Name="txtCVV" MaxLength="3" Placeholder="CVV" Style="{StaticResource input}" />
+                            </Frame>
                             <Label Text="Total:"  TextColor="#092D2D" FontSize="30" FontAttributes="Bold" Margin="0,15,0,0"></Label>
                             <Label x:Name="txt_Total" TextColor="#092D2D" FontSize="20"></Label>
                         </StackLayout>

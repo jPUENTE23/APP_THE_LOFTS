@@ -29,7 +29,9 @@ namespace DAL
                   Total = Reservacion.Total,
                   CantNoches = Reservacion.CantNoches,
                   TipoHab = Reservacion.TipoHab,
-                  Estatus = Reservacion.Estatus
+                  Estatus = Reservacion.Estatus,
+                  noTarjeta = Reservacion.noTarjeta,
+                  noHabitacion = Reservacion.noHabitacion
 
               });
         }

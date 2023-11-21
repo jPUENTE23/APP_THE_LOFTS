@@ -17,7 +17,8 @@ namespace THE_LOFTS
         string tipoHab = "";
         int precioHab = 0;
         List<DtoUsuario> lstusuario = new List<DtoUsuario>();
-        public AltaReservacion(List<DtoUsuario> Usuario, int precioHab, string tipoHab)
+        List<string> lstHab = new List<string>();
+        public AltaReservacion(List<DtoUsuario> Usuario, int precioHab, string tipoHab, List<string> lstHabitaciones)
         {
             InitializeComponent();
             NavigationPage.SetHasNavigationBar(this, false);
@@ -25,6 +26,7 @@ namespace THE_LOFTS
             this.lstusuario = Usuario;
             this.tipoHab = tipoHab;
             this.precioHab = precioHab;
+            this.lstHab = lstHabitaciones;
 
             foreach (DtoUsuario user in Usuario)
             {
@@ -81,42 +83,68 @@ namespace THE_LOFTS
             }
             else
             {
-                int noNoches = BL_RESERVACIONES.nochesRersevacion(fecInicio.Date, fecFin.Date);
-                int total = this.precioHab * noNoches;
-
-                foreach (DtoUsuario usuario in this.lstusuario)
+                if(!string.IsNullOrEmpty(txtNoTarjeta.Text) && !string.IsNullOrEmpty(txtFecVec.Text) && !string.IsNullOrEmpty(txtCVV.Text))
                 {
-                    List<DtoUsuario> lstUsuario = await BL_Usuario.datosUsuario(usuario.Correo, usuario.Contraseña);
+                    int noNoches = BL_RESERVACIONES.nochesRersevacion(fecInicio.Date, fecFin.Date);
+                    int total = this.precioHab * noNoches;
 
-                    foreach (DtoUsuario user in lstUsuario)
+                    foreach (DtoUsuario usuario in this.lstusuario)
                     {
-                        DtoReservacion Reservacion = new DtoReservacion
-                        {
-                            FecInicioResrvacion = fecInicio.Date,
-                            FecFinReservacion = fecFin.Date,
-                            IdUsuario = user.IdUsuario,
-                            CantNoches = noNoches,
-                            Total = total,
-                            TipoHab = this.tipoHab,
-                            Estatus = 1
-                        };
+                        List<DtoUsuario> lstUsuario = await BL_Usuario.datosUsuario(usuario.Correo, usuario.Contraseña);
+                        string noHab = await asignarHab();
 
-                        List<string> response = await BL_RESERVACIONES.GuardarReservacion(Reservacion);
+                        foreach (DtoUsuario user in lstUsuario)
+                        {
+                            DtoReservacion Reservacion = new DtoReservacion
+                            {
+                                FecInicioResrvacion = fecInicio.Date,
+                                FecFinReservacion = fecFin.Date,
+                                IdUsuario = user.IdUsuario,
+                                CantNoches = noNoches,
+                                Total = total,
+                                TipoHab = this.tipoHab,
+                                Estatus = 1,
+                                noTarjeta = txtNoTarjeta.Text,
+                                noHabitacion = noHab
+                            };
 
-                        if (response[0] == "00")
-                        {
-                            await App.Current.MainPage.DisplayAlert("Alert", response[1], "OK");
-                            await Navigation.PushAsync(new Inicio(this.lstusuario));
-                        }
-                        else
-                        {
-                            await App.Current.MainPage.DisplayAlert("Alert", response[1], "OK");
+                            List<string> response = await BL_RESERVACIONES.GuardarReservacion(Reservacion);
+
+                            if (response[0] == "00")
+                            {
+                                await App.Current.MainPage.DisplayAlert("Alert", response[1], "OK");
+                                await Navigation.PushAsync(new Inicio(this.lstusuario));
+                            }
+                            else
+                            {
+                                await App.Current.MainPage.DisplayAlert("Alert", response[1], "OK");
+                            }
                         }
                     }
                 }
+                else
+                {
+                    await App.Current.MainPage.DisplayAlert("Alert", "No se han ingresado los datos para realizar el pago", "OK");
+                }
+            }
+        }
+
+        public async Task<string> asignarHab()
+        {
+            List<string> lsrRservacionee = await BL_RESERVACIONES.RsservacionesHab(this.tipoHab);
+
+            string nohab = "";
+
+            foreach (string hab in this.lstHab)
+            {
+                if (!lsrRservacionee.Contains(hab))
+                {
+                    nohab = hab;
+                    break;
+                }
             }
 
-            
+            return nohab;
         }
 
         //private void FecInicio_DateSelected(object sender, DateChangedEventArgs e)

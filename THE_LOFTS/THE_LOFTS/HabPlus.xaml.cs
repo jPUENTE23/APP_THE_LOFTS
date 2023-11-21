@@ -16,6 +16,7 @@ namespace THE_LOFTS
         string tipoHab = "Plus";
         int precioHab = 1200;
         int cantDisponibles = 10;
+        List<string> lstHabitacions = new List<string>() { "P101", "P102", "P103", "P104", "P105", "P106", "P106", "P107", "P108", "P109", "P110" };
         public List<DtoUsuario> lstUsuario = new List<DtoUsuario>();
         public HabPlus(List<DtoUsuario> Usuario)
         {
@@ -32,7 +33,7 @@ namespace THE_LOFTS
 
         public async void Reservar(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AltaReservacion(this.lstUsuario, precioHab, tipoHab));
+            await Navigation.PushAsync(new AltaReservacion(this.lstUsuario, precioHab, tipoHab, lstHabitacions));
         }
 
         public async void ValidarHabitaciones()

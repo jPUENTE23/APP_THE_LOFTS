@@ -130,7 +130,7 @@
                 <Setter Property="HeightRequest" Value="700" />
                 <Setter Property="Margin" Value="0,15,0,0"/>
             </Style>
-            <Style x:Key="buttonEliminar" TargetType="Button">
+            <Style x:Key="buttonEliminar" TargetType="Button">  
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="CenterAndExpand" />
                 <Setter Property="BorderColor" Value="#E97C88" />

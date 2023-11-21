@@ -10,7 +10,7 @@
                     <StackLayout Margin="0,0,0,0" HeightRequest="1100">
                         <StackLayout>
                             <Frame>
-                                <Label Text="Mis Reservaciones" TextColor="Black" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"></Label>
+                                <Label Text="Mis Reservaciones" TextColor="#5A8A70" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold"></Label>
                             </Frame>
                             <Frame>
                                 <ListView x:Name="listaRservaciones" RowHeight="100" ItemSelected="OnItemSelected">
